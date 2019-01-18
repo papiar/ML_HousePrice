@@ -31,3 +31,7 @@ df = df.drop(columns=["Id"])
 list_Neighborhood = df["Neighborhood"].unique()
 for aux_col in list_Neighborhood:
     df.loc[(df["LotFrontage"].isna()) & (df["Neighborhood"] == aux_col),"LotFrontage"] = df.loc[(df["Neighborhood"] == aux_col),"LotFrontage"].mean()
+
+
+#Copiado desde https://www.kaggle.com/caicell/fun-python-eda-step-by-step
+nullIndex = df.isnull().any().index[df.isnull().any()]
